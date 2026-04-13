@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #7a2ad6;
+  --color-primary-container: #944af1;
+  --color-surface: #fbf9f9;
+  --color-surface-container-low: #f5f3f3;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-high: #e9e8e7;
+  --color-surface-container-highest: #e3e2e2;
+  --color-on-surface: #1b1c1c;
+  --color-on-surface-variant: #4b4454;
+  --color-outline-variant: #cec2d7;
+  --color-tertiary: #006767;
+  --color-tertiary-fixed: #59f8f8;
+  --color-error: #ba1a1a;
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-sans antialiased;
+  }
+}
+
+@layer components {
+  .glass-nav {
+    @apply sticky top-0 z-50 bg-surface/80 backdrop-blur-xl shadow-[0px_12px_32px_rgba(27,28,28,0.06)];
+  }
+
+  .btn-primary {
+    @apply px-10 py-4 bg-gradient-to-br from-primary to-primary-container text-white rounded-full font-bold text-lg shadow-xl shadow-primary/20 hover:scale-105 active:scale-95 transition-all;
+  }
+
+  .btn-secondary {
+    @apply px-10 py-4 bg-surface-container-high text-on-surface rounded-full font-bold text-lg hover:bg-surface-container-highest active:scale-95 transition-all;
+  }
+
+  .card {
+    @apply bg-surface-container-lowest rounded-xl shadow-[0px_12px_32px_rgba(27,28,28,0.06)] overflow-hidden;
+  }
+}
