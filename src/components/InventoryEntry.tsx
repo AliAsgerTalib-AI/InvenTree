@@ -15,7 +15,7 @@ export default function InventoryEntry({
   onCancelEdit: () => void;
 }) {
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [imagePreview, setImagePreview] = useState<string | null>(editingItem?.imageUrl || null);
   const [formData, setFormData] = useState({
     room: editingItem?.room || '',
     category: editingItem?.category || '',
@@ -23,6 +23,20 @@ export default function InventoryEntry({
     purchaseDate: editingItem?.purchaseDate || '',
     price: editingItem?.price.toString() || ''
   });
+
+  // Update imagePreview if editingItem changes
+  React.useEffect(() => {
+    if (editingItem) {
+      setImagePreview(editingItem.imageUrl || null);
+      setFormData({
+        room: editingItem.room,
+        category: editingItem.category,
+        description: editingItem.description,
+        purchaseDate: editingItem.purchaseDate,
+        price: editingItem.price.toString()
+      });
+    }
+  }, [editingItem]);
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -49,7 +63,9 @@ export default function InventoryEntry({
       category: formData.category,
       description: formData.description,
       purchaseDate: formData.purchaseDate,
-      price: parseFloat(formData.price)
+      price: parseFloat(formData.price),
+      imageUrl: imagePreview || undefined,
+      createdAt: editingItem?.createdAt || new Date().toISOString()
     };
 
     if (editingItem) {

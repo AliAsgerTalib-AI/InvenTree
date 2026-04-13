@@ -12,6 +12,7 @@ export default function Layout({ children, currentPath, onNavigate }: LayoutProp
   const navItems = [
     { name: 'Dashboard', path: 'dashboard' },
     { name: 'Inventory Entry', path: 'entry' },
+    { name: 'All Records', path: 'records' },
     { name: 'Property Profile', path: 'property' },
     { name: 'Household Profile', path: 'owner' },
     { name: 'Settings', path: 'settings' },

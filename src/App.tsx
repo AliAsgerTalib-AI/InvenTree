@@ -6,10 +6,11 @@ import InventoryEntry from './components/InventoryEntry';
 import Settings from './components/Settings';
 import PropertyProfile from './components/PropertyProfile';
 import OwnerProfile from './components/OwnerProfile';
+import Records from './components/Records';
 import { motion, AnimatePresence } from 'motion/react';
 import { InventoryItem, PropertyDetails, OwnerDetails } from './types';
 
-type Page = 'home' | 'dashboard' | 'entry' | 'settings' | 'property' | 'owner';
+type Page = 'home' | 'dashboard' | 'entry' | 'settings' | 'property' | 'owner' | 'records';
 
 export default function App() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
@@ -61,6 +62,12 @@ export default function App() {
     setEditingItem(null);
   };
 
+  const deleteItem = (id: string) => {
+    if (window.confirm('Are you sure you want to delete this item?')) {
+      setInventory(prev => prev.filter(item => item.id !== id));
+    }
+  };
+
   const handleEditRequest = (item: InventoryItem) => {
     setEditingItem(item);
     setCurrentPage('entry');
@@ -72,6 +79,8 @@ export default function App() {
         return <Home onGetStarted={() => setCurrentPage('entry')} />;
       case 'dashboard':
         return <Dashboard inventory={inventory} onEditItem={handleEditRequest} />;
+      case 'records':
+        return <Records inventory={inventory} onEditItem={handleEditRequest} onDeleteItem={deleteItem} />;
       case 'entry':
         return (
           <InventoryEntry 

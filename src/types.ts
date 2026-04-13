@@ -5,6 +5,8 @@ export interface InventoryItem {
   description: string;
   purchaseDate: string;
   price: number;
+  imageUrl?: string;
+  createdAt: string;
 }
 
 export interface Category {
