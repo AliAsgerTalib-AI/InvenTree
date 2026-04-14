@@ -1,43 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #7a2ad6;
-  --color-primary-container: #944af1;
-  --color-surface: #fbf9f9;
-  --color-surface-container-low: #f5f3f3;
+  --color-primary: #1a1a1a;
+  --color-primary-container: #2d2d2d;
+  --color-on-primary: #ffffff;
+  
+  --color-surface: #f5f2ed;
+  --color-surface-container-low: #efece7;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container-high: #e9e8e7;
-  --color-surface-container-highest: #e3e2e2;
-  --color-on-surface: #1b1c1c;
-  --color-on-surface-variant: #4b4454;
-  --color-outline-variant: #cec2d7;
-  --color-tertiary: #006767;
-  --color-tertiary-fixed: #59f8f8;
+  --color-surface-container-high: #e8e5e0;
+  --color-surface-container-highest: #e1ded9;
+  
+  --color-on-surface: #1a1a1a;
+  --color-on-surface-variant: #4a4a4a;
+  
+  --color-outline: #d1d1d1;
+  --color-outline-variant: #e5e5e5;
+  
+  --color-tertiary: #5a5a40;
   --color-error: #ba1a1a;
 
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 }
 
 @layer base {
   body {
     @apply bg-surface text-on-surface font-sans antialiased;
   }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
 }
 
 @layer components {
   .glass-nav {
-    @apply sticky top-0 z-50 bg-surface/80 backdrop-blur-xl shadow-[0px_12px_32px_rgba(27,28,28,0.06)];
+    @apply sticky top-0 z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/10 shadow-sm;
   }
 
   .btn-primary {
-    @apply px-10 py-4 bg-gradient-to-br from-primary to-primary-container text-white rounded-full font-bold text-lg shadow-xl shadow-primary/20 hover:scale-105 active:scale-95 transition-all;
+    @apply px-10 py-4 bg-primary text-white rounded-full font-bold text-sm uppercase tracking-widest shadow-xl shadow-primary/20 hover:bg-primary-container active:scale-95 transition-all;
   }
 
   .btn-secondary {
-    @apply px-10 py-4 bg-surface-container-high text-on-surface rounded-full font-bold text-lg hover:bg-surface-container-highest active:scale-95 transition-all;
+    @apply px-10 py-4 bg-surface-container-high text-on-surface rounded-full font-bold text-sm uppercase tracking-widest hover:bg-surface-container-highest active:scale-95 transition-all;
   }
 
   .card {
-    @apply bg-surface-container-lowest rounded-xl shadow-[0px_12px_32px_rgba(27,28,28,0.06)] overflow-hidden;
+    @apply bg-surface-container-lowest rounded-2xl shadow-[0px_12px_32px_rgba(27,28,28,0.06)] border border-outline-variant/5 overflow-hidden;
   }
 }

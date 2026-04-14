@@ -10,9 +10,22 @@ import Records from './components/Records';
 import { motion, AnimatePresence } from 'motion/react';
 import { InventoryItem, PropertyDetails, OwnerDetails } from './types';
 
+import ErrorBoundary from './components/ErrorBoundary';
+import { ToastProvider } from './components/ToastContext';
+
 type Page = 'home' | 'dashboard' | 'entry' | 'settings' | 'property' | 'owner' | 'records';
 
 export default function App() {
+  return (
+    <ErrorBoundary>
+      <ToastProvider>
+        <AppContent />
+      </ToastProvider>
+    </ErrorBoundary>
+  );
+}
+
+function AppContent() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
   
   // Load initial state from localStorage
