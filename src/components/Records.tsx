@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Search, ArrowUpDown, Edit2, Trash2, Package, MapPin, Calendar, IndianRupee, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { InventoryItem, formatDate } from '../types';
+import PageHeader from './common/PageHeader';
 
 interface RecordsProps {
   inventory: InventoryItem[];
@@ -52,15 +53,11 @@ export default function Records({ inventory, onEditItem, onDeleteItem }: Records
 
   return (
     <div className="max-w-[1200px] mx-auto w-full px-8 py-12">
-      <header className="mb-12">
-        <nav className="inline-flex items-center px-4 py-1.5 mb-6 rounded-full bg-surface-container-lowest backdrop-blur-md shadow-sm border border-outline-variant/10">
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">Registry</span>
-          <ChevronRight size={12} className="mx-2 text-on-surface-variant/50" />
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant">Asset Catalog</span>
-        </nav>
-        <h1 className="text-5xl font-serif font-bold tracking-tight text-on-surface mb-4">Asset Registry</h1>
-        <p className="text-on-surface-variant max-w-md leading-relaxed font-light italic-serif">A comprehensive, high-fidelity catalog of all documented physical assets.</p>
-      </header>
+      <PageHeader 
+        title="Asset Registry"
+        subtitle="A comprehensive, high-fidelity catalog of all documented physical assets."
+        badge="Registry"
+      />
 
       {/* Filters & Search */}
       <div className="bg-surface-container-lowest rounded-[2rem] p-8 shadow-sm border border-outline-variant/5 mb-12 space-y-8">

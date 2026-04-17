@@ -3,6 +3,7 @@ import { TrendingUp, Laptop, Armchair, Coffee, ChevronRight, FileText, RefreshCw
 import { motion, AnimatePresence } from 'motion/react';
 import { InventoryItem, formatDate } from '../types';
 import { useToast } from './ToastContext';
+import PageHeader from './common/PageHeader';
 // @ts-ignore
 import html2pdf from 'html2pdf.js';
 
@@ -149,49 +150,45 @@ export default function Dashboard({ inventory, onEditItem }: { inventory: Invent
   return (
     <div className="max-w-[1200px] mx-auto w-full px-8 py-12">
       {/* Header Section */}
-      <header className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
-        <div>
-          <nav className="inline-flex items-center px-4 py-1.5 mb-6 rounded-full bg-surface-container-lowest backdrop-blur-md shadow-sm border border-outline-variant/10">
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">Intelligence</span>
-            <ChevronRight size={12} className="mx-2 text-on-surface-variant/50" />
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant">Analytics Dashboard</span>
-          </nav>
-          <h1 className="text-5xl font-serif font-bold tracking-tight text-on-surface mb-4">Inventory Intelligence</h1>
-          <p className="text-on-surface-variant max-w-md leading-relaxed font-light italic-serif">A high-fidelity view of your physical assets and spatial distribution.</p>
-        </div>
-        <div className="flex flex-wrap gap-4" data-html2canvas-ignore="true">
-          <button 
-            onClick={() => setShowFilters(!showFilters)}
-            className={`px-8 py-4 font-bold text-[10px] uppercase tracking-[0.2em] rounded-full active:scale-95 transition-all flex items-center gap-3 border ${showFilters ? 'bg-primary text-white border-primary' : 'bg-surface-container-low text-on-surface border-outline-variant/10 hover:bg-surface-container-highest'}`}
-          >
-            <Filter size={16} />
-            Filters
-          </button>
-          
-          <div className="relative group">
-            <button className="px-8 py-4 bg-surface-container-low text-on-surface font-bold text-[10px] uppercase tracking-[0.2em] rounded-full active:scale-95 transition-all hover:bg-surface-container-highest flex items-center gap-3 border border-outline-variant/10">
-              <Download size={16} />
-              Export
+      <PageHeader 
+        title="Inventory Intelligence"
+        subtitle="A high-fidelity view of your physical assets and spatial distribution."
+        badge="Intelligence"
+        actions={
+          <>
+            <button 
+              onClick={() => setShowFilters(!showFilters)}
+              className={`px-8 py-4 font-bold text-[10px] uppercase tracking-[0.2em] rounded-full active:scale-95 transition-all flex items-center gap-3 border ${showFilters ? 'bg-primary text-white border-primary' : 'bg-surface-container-low text-on-surface border-outline-variant/10 hover:bg-surface-container-highest'}`}
+            >
+              <Filter size={16} />
+              Filters
             </button>
-            <div className="absolute right-0 mt-3 w-56 bg-surface-container-lowest rounded-2xl shadow-2xl border border-outline-variant/10 py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
-              <button onClick={handleExportPDF} className="w-full text-left px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-surface-container-low flex items-center gap-3 transition-colors">
-                <FileText size={16} className="text-primary" /> PDF Report
+            
+            <div className="relative group">
+              <button className="px-8 py-4 bg-surface-container-low text-on-surface font-bold text-[10px] uppercase tracking-[0.2em] rounded-full active:scale-95 transition-all hover:bg-surface-container-highest flex items-center gap-3 border border-outline-variant/10">
+                <Download size={16} />
+                Export
               </button>
-              <button onClick={handleExportCSV} className="w-full text-left px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-surface-container-low flex items-center gap-3 transition-colors">
-                <FileText size={16} className="text-tertiary" /> CSV Spreadsheet
-              </button>
-              <button onClick={handleExportJSON} className="w-full text-left px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-surface-container-low flex items-center gap-3 transition-colors">
-                <FileText size={16} className="text-on-surface-variant" /> JSON Data
-              </button>
+              <div className="absolute right-0 mt-3 w-56 bg-surface-container-lowest rounded-2xl shadow-2xl border border-outline-variant/10 py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+                <button onClick={handleExportPDF} className="w-full text-left px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-surface-container-low flex items-center gap-3 transition-colors">
+                  <FileText size={16} className="text-primary" /> PDF Report
+                </button>
+                <button onClick={handleExportCSV} className="w-full text-left px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-surface-container-low flex items-center gap-3 transition-colors">
+                  <FileText size={16} className="text-tertiary" /> CSV Spreadsheet
+                </button>
+                <button onClick={handleExportJSON} className="w-full text-left px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-surface-container-low flex items-center gap-3 transition-colors">
+                  <FileText size={16} className="text-on-surface-variant" /> JSON Data
+                </button>
+              </div>
             </div>
-          </div>
 
-          <button className="px-8 py-4 bg-primary text-white font-bold text-[10px] uppercase tracking-[0.2em] rounded-full active:scale-95 transition-all shadow-2xl shadow-primary/20 flex items-center gap-3 hover:bg-primary-container">
-            <RefreshCw size={16} />
-            Refresh
-          </button>
-        </div>
-      </header>
+            <button className="px-8 py-4 bg-primary text-white font-bold text-[10px] uppercase tracking-[0.2em] rounded-full active:scale-95 transition-all shadow-2xl shadow-primary/20 flex items-center gap-3 hover:bg-primary-container">
+              <RefreshCw size={16} />
+              Refresh
+            </button>
+          </>
+        }
+      />
 
       {/* Filters Panel */}
       <AnimatePresence>

@@ -3,6 +3,7 @@ import { Home, MapPin, Building2, Save, ChevronRight } from 'lucide-react';
 import { motion } from 'motion/react';
 import { PropertyDetails } from '../types';
 import { useToast } from './ToastContext';
+import PageHeader from './common/PageHeader';
 
 export default function PropertyProfile({ data, onSave }: { data: PropertyDetails, onSave: (data: PropertyDetails) => void }) {
   const { showToast } = useToast();
@@ -22,15 +23,11 @@ export default function PropertyProfile({ data, onSave }: { data: PropertyDetail
 
   return (
     <div className="max-w-[1200px] mx-auto w-full px-8 py-12">
-      <header className="mb-12">
-        <nav className="inline-flex items-center px-4 py-1.5 mb-6 rounded-full bg-surface-container-lowest backdrop-blur-md shadow-sm border border-outline-variant/10">
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary">Registry</span>
-          <ChevronRight size={12} className="mx-2 text-on-surface-variant/50" />
-          <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant">Property Identity</span>
-        </nav>
-        <h1 className="text-5xl font-serif font-bold tracking-tight text-on-surface mb-4">Property Identity</h1>
-        <p className="text-on-surface-variant max-w-md leading-relaxed font-light italic-serif">Define the physical context of your asset registry for precise spatial categorization.</p>
-      </header>
+      <PageHeader 
+        title="Property Identity"
+        subtitle="Define the physical context of your asset registry for precise spatial categorization."
+        badge="Registry"
+      />
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
         <div className="lg:col-span-8">

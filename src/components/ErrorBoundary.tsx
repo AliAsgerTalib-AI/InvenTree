@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component, ErrorInfo, ReactNode } from 'react';
 import { AlertTriangle, RefreshCcw, Home } from 'lucide-react';
 
 interface Props {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 interface State {
@@ -20,12 +20,13 @@ export default class ErrorBoundary extends React.Component<Props, State> {
     return { hasError: true, error };
   }
 
-  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error('Uncaught error:', error, errorInfo);
   }
 
   render() {
-    if (this.state.hasError) {
+    const { hasError, error } = this.state;
+    if (hasError) {
       return (
         <div className="min-h-screen bg-surface flex items-center justify-center p-6">
           <div className="max-w-md w-full bg-surface-container-lowest rounded-3xl shadow-2xl p-12 text-center border border-outline-variant/10">
@@ -54,7 +55,7 @@ export default class ErrorBoundary extends React.Component<Props, State> {
             </div>
             {process.env.NODE_ENV === 'development' && (
               <div className="mt-8 p-4 bg-surface-container-low rounded-xl text-left overflow-auto max-h-40">
-                <p className="text-xs font-mono text-error">{this.state.error?.toString()}</p>
+                <p className="text-xs font-mono text-error">{error?.toString()}</p>
               </div>
             )}
           </div>
@@ -62,6 +63,6 @@ export default class ErrorBoundary extends React.Component<Props, State> {
       );
     }
 
-    return this.props.children;
+    return (this.props as any).children;
   }
 }

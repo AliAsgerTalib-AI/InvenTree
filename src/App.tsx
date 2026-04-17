@@ -7,13 +7,14 @@ import Settings from './components/Settings';
 import PropertyProfile from './components/PropertyProfile';
 import OwnerProfile from './components/OwnerProfile';
 import Records from './components/Records';
+import Legal from './components/Legal';
 import { motion, AnimatePresence } from 'motion/react';
 import { InventoryItem, PropertyDetails, OwnerDetails } from './types';
 
 import ErrorBoundary from './components/ErrorBoundary';
 import { ToastProvider } from './components/ToastContext';
 
-type Page = 'home' | 'dashboard' | 'entry' | 'settings' | 'property' | 'owner' | 'records';
+type Page = 'home' | 'dashboard' | 'entry' | 'settings' | 'property' | 'owner' | 'records' | 'legal';
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
 
 function AppContent() {
   const [currentPage, setCurrentPage] = useState<Page>('home');
+  const [legalSection, setLegalSection] = useState<'about' | 'privacy' | 'contact'>('about');
   
   // Load initial state from localStorage
   const [inventory, setInventory] = useState<InventoryItem[]>(() => {
@@ -126,13 +128,27 @@ function AppContent() {
             }} 
           />
         );
+      case 'legal':
+        return (
+          <Legal 
+            initialSection={legalSection} 
+            onBack={() => setCurrentPage('dashboard')} 
+          />
+        );
       default:
         return <Home onGetStarted={() => setCurrentPage('entry')} />;
     }
   };
 
   return (
-    <Layout currentPath={currentPage} onNavigate={(path) => setCurrentPage(path as Page)}>
+    <Layout 
+      currentPath={currentPage} 
+      onNavigate={(path) => setCurrentPage(path as Page)}
+      onLegalClick={(section) => {
+        setLegalSection(section);
+        setCurrentPage('legal');
+      }}
+    >
       <AnimatePresence mode="wait">
         <motion.div
           key={currentPage}
