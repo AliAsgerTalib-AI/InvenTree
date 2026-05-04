@@ -1,6 +1,6 @@
 {
   "name": "InvenTree",
-  "description": "Editorial-grade home inventory management for the modern collector.",
+  "description": "Home inventory management.",
   "requestFramePermissions": [],
   "majorCapabilities": []
 }

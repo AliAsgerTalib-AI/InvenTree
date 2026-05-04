@@ -8,14 +8,7 @@ export default function Home({ onGetStarted }: { onGetStarted: () => void }) {
       {/* Hero Section: Refined & Professional */}
       <section className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center py-24">
         <div className="flex flex-col items-start text-left">
-          <motion.div 
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-primary/5 text-primary text-[10px] font-bold uppercase tracking-[0.3em] mb-10 border border-primary/10 shadow-sm"
-          >
-            <Shield size={12} />
-            Institutional Grade Asset Registry
-          </motion.div>
+          
           
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
@@ -25,7 +18,7 @@ export default function Home({ onGetStarted }: { onGetStarted: () => void }) {
           >
             Curate Your <br />
             <span className="italic text-primary">Legacy</span> <br />
-            with Precision.
+           
           </motion.h1>
           
           <motion.p 
@@ -34,7 +27,7 @@ export default function Home({ onGetStarted }: { onGetStarted: () => void }) {
             transition={{ delay: 0.2 }}
             className="max-w-md text-xl text-on-surface-variant leading-relaxed mb-14 font-light italic-serif"
           >
-            Move beyond simple lists. InvenTree provides insurance-grade tracking of all items for the modern household.
+            Move beyond simple lists. InvenTree provides tracking of items for the modern household.
           </motion.p>
           
           <motion.div 
@@ -79,9 +72,9 @@ export default function Home({ onGetStarted }: { onGetStarted: () => void }) {
                 <div className="w-10 h-10 rounded-xl bg-primary/20 flex items-center justify-center text-primary-container border border-white/10">
                   <ShieldCheck size={24} />
                 </div>
-                <span className="text-[10px] font-bold uppercase tracking-[0.3em]">Verified Documentation</span>
+            
               </div>
-              <p className="text-sm font-light opacity-90 leading-relaxed">Your assets are cataloged to meet 98% of institutional insurance requirements.</p>
+            
             </motion.div>
           </div>
         </motion.div>
@@ -92,18 +85,14 @@ export default function Home({ onGetStarted }: { onGetStarted: () => void }) {
         {[
           {
             icon: <ListChecks className="text-primary" size={28} />,
-            title: "Precise Cataloging",
+            title: "Cataloging",
             desc: "Detailed metadata for every asset, from provenance to current market valuation."
           },
-          {
-            icon: <ShieldCheck className="text-primary" size={28} />,
-            title: "Insurance Ready",
-            desc: "Generate high-fidelity reports designed for immediate insurance claim processing."
-          },
+          
           {
             icon: <BarChart3 className="text-primary" size={28} />,
-            title: "Spatial Intelligence",
-            desc: "Analyze asset distribution across your properties with intuitive spatial mapping."
+            title: "Intelligence",
+            desc: "Analyze asset distribution across your properties."
           }
         ].map((pillar, i) => (
           <motion.div 
@@ -123,16 +112,7 @@ export default function Home({ onGetStarted }: { onGetStarted: () => void }) {
         ))}
       </section>
 
-      {/* Trust Banner */}
-      <section className="py-24 border-y border-outline-variant/10 flex flex-col items-center text-center">
-        <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-on-surface-variant mb-12">Trusted by Modern Homeowners</span>
-        <div className="flex flex-wrap justify-center gap-20 opacity-30 grayscale">
-          <CheckCircle2 size={40} />
-          <CheckCircle2 size={40} />
-          <CheckCircle2 size={40} />
-          <CheckCircle2 size={40} />
-        </div>
-      </section>
+     
     </div>
   );
 }

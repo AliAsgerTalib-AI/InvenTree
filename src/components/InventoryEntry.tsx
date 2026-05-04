@@ -119,14 +119,7 @@ export default function InventoryEntry({
       </div>
 
       <div className="w-full max-w-2xl">
-        {/* Glassmorphic Breadcrumb */}
-        <div className="mb-8 flex justify-center">
-          <div className="bg-surface/80 backdrop-blur-md px-6 py-2 rounded-full shadow-sm border border-outline-variant/10 flex items-center gap-3 text-[10px] font-bold tracking-[0.2em] uppercase text-on-surface-variant">
-            <span>InvenTree</span>
-            <ChevronRight size={12} className="text-on-surface-variant/30" />
-            <span className="text-primary">Inventory Entry</span>
-          </div>
-        </div>
+        
 
         {/* Form Card */}
         <motion.div 
@@ -139,7 +132,7 @@ export default function InventoryEntry({
               <h1 className="text-5xl font-serif font-bold tracking-tight text-on-surface mb-4">
                 {editingItem ? 'Edit Registry' : 'New Registry'}
               </h1>
-              <p className="text-on-surface-variant leading-relaxed font-light italic-serif max-w-md">Document your assets with editorial precision. All fields are required for cataloging.</p>
+              <p className="text-on-surface-variant leading-relaxed font-light italic-serif max-w-md">Document your assets.</p>
             </div>
             {editingItem && (
               <button 
@@ -272,7 +265,7 @@ export default function InventoryEntry({
                       <Camera size={36} />
                     </div>
                     <div className="text-sm font-bold text-on-surface uppercase tracking-[0.2em]">Upload Item Photo</div>
-                    <div className="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">PNG, JPG up to 10MB</div>
+                    <div className="text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">PNG, JPG up to 2MB</div>
                   </motion.div>
                 )}
               </AnimatePresence>

@@ -115,7 +115,7 @@ export default function Legal({ onBack, initialSection = 'about' }: LegalProps) 
                 <div className="p-8 bg-surface-container-low rounded-3xl border border-outline-variant/10 hover:border-primary/20 transition-all group">
                   <Mail className="text-primary mb-6 transition-transform group-hover:scale-110" size={32} />
                   <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-2">Email Liaison</h4>
-                  <p className="text-xl font-serif font-bold text-on-surface">support@inventree.co</p>
+                  <p className="text-xl font-serif font-bold text-on-surface">support@inventree.in</p>
                 </div>
                 <div className="p-8 bg-surface-container-low rounded-3xl border border-outline-variant/10 hover:border-primary/20 transition-all group">
                   <Phone className="text-primary mb-6 transition-transform group-hover:scale-110" size={32} />
@@ -127,8 +127,8 @@ export default function Legal({ onBack, initialSection = 'about' }: LegalProps) 
                     <MapPin size={32} />
                   </div>
                   <div>
-                    <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-1">Global Headquarters</h4>
-                    <p className="text-lg font-serif font-bold text-on-surface">One Silicon Valley, Palo Alto, CA 94301</p>
+                    <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant mb-1">Headquarters</h4>
+                    <p className="text-lg font-serif font-bold text-on-surface">Mumbai,India</p>
                   </div>
                 </div>
               </div>

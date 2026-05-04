@@ -169,19 +169,13 @@ export default function PropertyProfile({ data, onSave }: { data: PropertyDetail
             <div className="w-14 h-14 rounded-[1.25rem] bg-white shadow-sm flex items-center justify-center mb-8 text-primary">
               <Building2 size={28} />
             </div>
-            <h3 className="text-2xl font-bold mb-4 tracking-tight">Spatial Context</h3>
+           
             <p className="text-on-surface-variant leading-relaxed font-light italic-serif">
-              Providing accurate property details helps in generating more precise insurance reports and spatial analytics for your inventory.
+              Providing accurate property details helps in generating more precise insurance reports for your inventory.
             </p>
           </div>
 
-          <div className="bg-primary text-white rounded-[2rem] p-10 overflow-hidden relative">
-            <h3 className="text-2xl font-bold mb-3 relative z-10">Institutional Grade</h3>
-            <p className="text-white/70 leading-relaxed font-light relative z-10 italic-serif">
-              Your property data is encrypted and stored according to institutional security standards.
-            </p>
-            <div className="absolute -right-12 -bottom-12 w-48 h-48 bg-white/5 rounded-full blur-3xl"></div>
-          </div>
+         
         </div>
       </div>
     </div>

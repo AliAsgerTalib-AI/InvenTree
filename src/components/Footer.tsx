@@ -13,7 +13,7 @@ export default function Footer({ onLegalClick }: FooterProps) {
         <div className="flex flex-col items-center md:items-start">
           <span className="text-xl font-serif font-bold tracking-tighter text-on-surface mb-2">InvenTree</span>
           <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-on-surface-variant/50">
-            © {currentYear} Institutional Household Assets • All Rights Reserved
+            © {currentYear} • All Rights Reserved
           </p>
         </div>
         

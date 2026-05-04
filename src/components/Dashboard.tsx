@@ -152,8 +152,8 @@ export default function Dashboard({ inventory, onEditItem }: { inventory: Invent
       {/* Header Section */}
       <PageHeader 
         title="Inventory Intelligence"
-        subtitle="A high-fidelity view of your physical assets and spatial distribution."
-        badge="Intelligence"
+        subtitle=""
+       
         actions={
           <>
             <button 

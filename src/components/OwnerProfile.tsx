@@ -156,7 +156,7 @@ export default function OwnerProfile({ data, onSave }: { data: OwnerDetails, onS
                           exit={{ opacity: 0, scale: 0.95 }}
                           className="grid grid-cols-1 md:grid-cols-12 gap-6 items-end bg-surface-container-low/50 p-8 rounded-[2rem] border border-outline-variant/5 group"
                         >
-                          <div className="md:col-span-5 space-y-3">
+                          <div className="md:col-span-4 space-y-3">
                             <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant ml-1">Name</label>
                             <input 
                               type="text"
@@ -176,12 +176,12 @@ export default function OwnerProfile({ data, onSave }: { data: OwnerDetails, onS
                               onChange={(e) => updateFamilyMember(member.id, 'relation', e.target.value)}
                             />
                           </div>
-                          <div className="md:col-span-2 space-y-3">
+                          <div className="md:col-span-3 space-y-3">
                             <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant ml-1">Age</label>
                             <input 
                               type="number"
                               placeholder="Age"
-                              className="w-full px-6 py-4 rounded-xl bg-white border-none focus:ring-2 focus:ring-primary/20 transition-all text-on-surface font-medium"
+                              className="w-full px-4 py-4 rounded-xl bg-white border-none focus:ring-2 focus:ring-primary/20 transition-all text-on-surface font-medium"
                               value={member.age || ''}
                               onChange={(e) => updateFamilyMember(member.id, 'age', parseInt(e.target.value))}
                             />
